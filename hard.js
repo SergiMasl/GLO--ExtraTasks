@@ -1,15 +1,19 @@
-function a1(arg1, callback) {
-  console.log(typeof arg1);
+function checkType(arg1) {
   if (typeof arg1 !== "string") {
     alert("Аргумент не является строкой");
   } else {
-    callback(arg1);
+    handelText(arg1);
   }
 }
 
-a1("   ss123456789012345678901234567890   ", function (arg1) {
-  let newArg = arg1.trim();
-  if (newArg.length > 30) {
-    newArg = newArg.substring(0, 30) + "...";
+function handelText(text) {
+  let newText = text.trim();
+  let limitLength = 30;
+
+  if (newText.length > limitLength) {
+    newText = newText.substring(0, limitLength) + "...";
+    console.log(newText);
   }
-});
+}
+
+checkType("   ss123456789012345678901234567890   ");
